@@ -121,20 +121,14 @@ Fixed& Fixed::operator-( const Fixed &other )
 	return (*this);
 }
 
-/*Fixed& Fixed::operator*( const Fixed &other )*/
-/*{*/
-/*	fixedPointNb *= other.fixedPointNb;*/
-/*	std::cout << "raw=" << other.getRawBits() << "\n";*/
-/*	return (*this);*/
-/*}*/
+Fixed Fixed::operator*(Fixed const &other) const 
+{
+	Fixed result;
+	long long produit;
 
-Fixed Fixed::operator*(Fixed const &rhs) const {
-    Fixed r;
-    // utiliser 64 bits pour éviter tout débordement
-    long long prod = static_cast<long long>(fixedPointNb) *
-                     static_cast<long long>(rhs.getRawBits());
-    r.setRawBits(static_cast<int>(prod >> fractionalNb));
-    return r;
+	produit = static_cast<long long>(fixedPointNb) * static_cast<long long>(other.getRawBits());
+	result.setRawBits(static_cast<int>(produit >> fractionalNb));
+	return (result);
 }
 
 Fixed& Fixed::operator/( const Fixed &other )
