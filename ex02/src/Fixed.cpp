@@ -71,17 +71,12 @@ int Fixed::getRawBits( void ) const
 
 float Fixed::toFloat( void ) const
 {
-	return ((float)this->fixedPointNb / (float)(1 << fractionalNb));
+	return (static_cast<float>(this->fixedPointNb) / (1 << fractionalNb));
 }
 
 float Fixed::toInt( void ) const
 {
 	return ((int)this->fixedPointNb / (int)(1 << fractionalNb));
-}
-
-int Fixed::doubleToFixed(double nb)
-{
-	return (round(nb * (1 << fractionalNb)));
 }
 
 bool Fixed::operator>( const Fixed &other ) const
@@ -126,10 +121,20 @@ Fixed& Fixed::operator-( const Fixed &other )
 	return (*this);
 }
 
-Fixed& Fixed::operator*( const Fixed &other )
-{
-	fixedPointNb *= other.fixedPointNb;
-	return (*this);
+/*Fixed& Fixed::operator*( const Fixed &other )*/
+/*{*/
+/*	fixedPointNb *= other.fixedPointNb;*/
+/*	std::cout << "raw=" << other.getRawBits() << "\n";*/
+/*	return (*this);*/
+/*}*/
+
+Fixed Fixed::operator*(Fixed const &rhs) const {
+    Fixed r;
+    // utiliser 64 bits pour éviter tout débordement
+    long long prod = static_cast<long long>(fixedPointNb) *
+                     static_cast<long long>(rhs.getRawBits());
+    r.setRawBits(static_cast<int>(prod >> fractionalNb));
+    return r;
 }
 
 Fixed& Fixed::operator/( const Fixed &other )
@@ -166,4 +171,32 @@ Fixed Fixed::operator--( int )
 	nb = *this;
 	this->fixedPointNb--;
 	return (nb);
+}
+
+Fixed& Fixed::min(Fixed &other, Fixed &other2)
+{
+	if (other.fixedPointNb < other2.fixedPointNb)
+		 return (other);
+	return (other2);
+}
+
+const Fixed& Fixed::min(const Fixed &other, const Fixed &other2)
+{
+	if (other.fixedPointNb < other2.fixedPointNb)
+		 return (other);
+	return (other2);
+}
+
+Fixed& Fixed::max(Fixed &other, Fixed &other2)
+{
+	if (other.fixedPointNb > other2.fixedPointNb)
+		 return (other);
+	return (other2);
+}
+
+const Fixed& Fixed::max(const Fixed &other, const Fixed &other2)
+{
+	if (other.fixedPointNb > other2.fixedPointNb)
+		 return (other);
+	return (other2);
 }
