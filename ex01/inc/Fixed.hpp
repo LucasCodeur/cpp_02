@@ -32,7 +32,6 @@ class	Fixed
 	private:
 		static const int fractionalNb = 8;
 		int	fixedPointNb;
-		int	doubleToFixed(double nb);
 };
 
 std::ostream& operator<<( std::ostream &os, const Fixed &other );

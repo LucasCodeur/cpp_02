@@ -78,8 +78,3 @@ float Fixed::toInt( void ) const
 {
 	return ((int)this->fixedPointNb / (int)(1 << fractionalNb));
 }
-
-int Fixed::doubleToFixed(double nb)
-{
-	return (round(nb * (1 << fractionalNb)));
-}
