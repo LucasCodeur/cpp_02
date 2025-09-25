@@ -35,7 +35,7 @@ Fixed::Fixed ( const int nb )
 
 Fixed::Fixed ( const float nb )
 {
-	fixedPointNb = (int)((round(nb * (1 << fractionalNb))));
+	fixedPointNb = (int)((roundf(nb * (1 << fractionalNb))));
 	std::cout << "Float constructor called\n";
 }
 
@@ -123,8 +123,8 @@ Fixed& Fixed::operator-( const Fixed &other )
 
 Fixed Fixed::operator*(Fixed const &other) const 
 {
-	Fixed result;
-	long long produit;
+	Fixed		result;
+	long long	produit;
 
 	produit = static_cast<long long>(fixedPointNb) * static_cast<long long>(other.getRawBits());
 	result.setRawBits(static_cast<int>(produit >> fractionalNb));

@@ -34,7 +34,6 @@ class	Fixed
 
 		Fixed&	operator+( const Fixed &other );
 		Fixed&	operator-( const Fixed &other );
-		/*Fixed&	operator*( const Fixed &other );*/
 		Fixed operator*(Fixed const &rhs) const; 
 		Fixed&	operator/( const Fixed &other );
 		Fixed&	operator++();
