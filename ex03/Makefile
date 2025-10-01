@@ -6,7 +6,7 @@
 #    By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/18 12:51:21 by lud-adam          #+#    #+#              #
-#    Updated: 2025/09/25 18:32:12 by lud-adam         ###   ########.fr        #
+#    Updated: 2025/10/01 16:31:21 by lud-adam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ P_INC = inc/
 SRC = main.cpp \
 	  Fixed.cpp \
 	  Point.cpp \
+	  bsp.cpp
 
 INC = Fixed.hpp \
 	  Point.hpp \

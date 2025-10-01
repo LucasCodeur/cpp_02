@@ -74,7 +74,7 @@ float Fixed::toFloat( void ) const
 	return (static_cast<float>(this->fixedPointNb) / (1 << fractionalNb));
 }
 
-float Fixed::toInt( void ) const
+int Fixed::toInt( void ) const
 {
 	return ((int)this->fixedPointNb / (int)(1 << fractionalNb));
 }
@@ -133,7 +133,13 @@ Fixed Fixed::operator*(Fixed const &other) const
 
 Fixed& Fixed::operator/( const Fixed &other )
 {
-	fixedPointNb /= other.fixedPointNb;
+	if (other.fixedPointNb == 0)
+	{
+		std::cout << "Error: Divided by zero\n";
+		this->fixedPointNb = 0;
+		return (*this);
+	}
+	this->fixedPointNb /= other.fixedPointNb;
 	return (*this);
 }
 

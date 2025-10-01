@@ -6,7 +6,7 @@
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/25 17:33:26 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/09/25 18:54:41 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/10/01 17:36:08 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,41 @@ Point& Point::operator=( const Point &other )
 Point::~Point ( void )
 {
 	std::cout << "Destructor called\n";
+}
+
+void Point::setLeft( Point* node )
+{
+	this->left = node;
+}
+
+void Point::setRight( Point* node )
+{
+	this->right = node;
+}
+
+Point* Point::getLeft ( void )
+{
+	return (this->left);
+}
+
+Point* Point::getRight ( void )
+{
+	return (this->right);
+}
+
+void	Point::traceLine( Point &other )
+{
+	this->a = other.getY() - this->getY();
+	this->b = this->x - other.x;
+	this->c = other.x * this->y - this->x * other.y;
+}
+
+Fixed	Point::getX( void )
+{
+	return (this->x);
+}
+
+Fixed	Point::getY( void )
+{
+	return (this->y);
 }

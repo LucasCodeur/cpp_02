@@ -1,38 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   bsp.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/11 17:04:30 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/10/01 17:26:39 by lud-adam         ###   ########.fr       */
+/*   Created: 2025/10/01 15:04:10 by lud-adam          #+#    #+#             */
+/*   Updated: 2025/10/01 16:39:57 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 
-// # WARNING: have to put x and y in private
- 
-int	main(void)
+// # WARNING: Remettre les consts dans le prototype de fonction bsp
+
+bool bsp( Point& a, Point& b, Point& c, Point& point)
 {
-	Point	A( 2,5 );
-	Point	B( 7,1 );
-	Point	C( 4,8 );
-	Point	point( 3,5 );
-
-	Point* node1 = new Point();
-	Point* node2 = new Point();
-	Point* node3 = new Point();
-
-	node1->setLeft(node2);
-	node2->setLeft(node3);
-	
-	bsp(A, B ,C, point);
-	std::cout << A.a << " " << A.b << " " << A.c << "\n";
-	delete node1;
-	delete node2;
-	delete node3;
-
-	return (0);
+	(void)point;
+	a.traceLine(b);
+	b.traceLine(c);
+	c.traceLine(a);
+	return (true);
 }
