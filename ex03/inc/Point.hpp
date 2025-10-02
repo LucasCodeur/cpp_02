@@ -20,27 +20,19 @@
 class Point
 {
 	public:
-		Point ( void );
-		~Point ( void );
-		Point ( const float x, const float y );
-		Point ( const Point& obj );
+		Point	( void );
+		~Point	( void );
+		Point	( const float x, const float y );
+		Point	( const Point& obj );
 		Point&	operator=( const Point &other );
-		void	setLeft(Point* node);
-		void	setRight(Point* node);
-		Point*	getLeft ( void );
-		Point*	getRight ( void );
-		Fixed	getX( void );	
-		Fixed	getY( void );	
-		void	traceLine( Point &other );
-		Fixed	A;
-		Fixed	B;
+		Fixed	getX( void )const;
+		Fixed	getY( void )const;
+	private:
 		Fixed	x;
 		Fixed	y;
-		Point*	left;
-		Point*	right;
-	private:
 };
 
-bool bsp( Point&  a, Point& b, Point& c, Point& point);
+Fixed	detectPosPoint(const Point& a, const Point& b, const Point& p);
+bool	bsp( Point const a, Point const b, Point const c, Point const point);
 
 #endif

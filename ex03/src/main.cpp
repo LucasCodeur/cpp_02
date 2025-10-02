@@ -19,7 +19,11 @@ int	main(void)
 	Point	A( 2,5 );
 	Point	B( 7,1 );
 	Point	C( 4,8 );
-	Point	point( 3,5 );
+	Point	point( 3,6 );
 
+	if (bsp(A, B, C, point) == true)
+		std::cout << "Inside the triangle\n";
+	else
+		std::cout << "Not inside the triangle\n";
 	return (0);
 }

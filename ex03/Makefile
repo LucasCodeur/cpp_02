@@ -13,7 +13,7 @@
 .PHONY : all clean fclean re debug
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-NAME =	BSP 
+NAME =	Aaaaand...OPEN! 
 # Debugging flags
 CFLAGS_DEBUG = -Wall -Wextra -pthread -g3 -D DEBUG=1
 
@@ -22,12 +22,9 @@ P_OBJ = .obj/
 P_INC = inc/
 
 SRC = main.cpp \
-	  Fixed.cpp \
-	  Point.cpp \
-	  bsp.cpp
+	  ClapTrap.cpp
 
-INC = Fixed.hpp \
-	  Point.hpp \
+INC = ClapTrap.hpp \
 
 SRCS = \
 	$(addprefix $(P_SRC), $(SRC)) \
