@@ -23,7 +23,7 @@ class	Fixed
 		int getRawBits( void ) const;
 		void setRawBits( int const raw );
 	private:
-		static const int fractionalNb;
+		static const int fractionalNb = 8;
 		int	fixedPointNb;
 };
 

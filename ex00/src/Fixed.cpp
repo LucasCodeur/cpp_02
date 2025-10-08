@@ -14,23 +14,10 @@
 
 #include <iostream>
 
-static const int fractionalNb = 0;
-
 Fixed::Fixed ( void )
 {
 	fixedPointNb = 0;
 	std::cout << "Default constructor called\n";
-}
-
-Fixed::Fixed ( Fixed& obj )
-{
-	fixedPointNb = obj.fixedPointNb;
-	std::cout << "Copy constructor called\n";
-}
-
-Fixed::~Fixed (void )
-{
-	std::cout << "Destructor called\n";
 }
 
 Fixed& Fixed::operator=( const Fixed &other )
@@ -39,6 +26,18 @@ Fixed& Fixed::operator=( const Fixed &other )
 	if (this != &other)
 		fixedPointNb = other.getRawBits();
 	return (*this);
+}
+
+Fixed::Fixed ( Fixed& obj )
+{
+	std::cout << "Copy constructor called\n";
+	if (this != &other)
+		*this = obj;
+}
+
+Fixed::~Fixed ( void )
+{
+	std::cout << "Destructor called\n";
 }
 
 void Fixed::setRawBits( int const raw )
