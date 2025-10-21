@@ -12,7 +12,6 @@
 
 #include "Fixed.hpp"
 
-#include <iostream>
 #include <cmath>
 
 Fixed::Fixed ( void )
@@ -24,7 +23,8 @@ Fixed::Fixed ( void )
 Fixed::Fixed ( const Fixed& obj )
 {
 	std::cout << "Copy constructor called\n";
-	*this = obj;
+	if (this != &obj)
+		*this = obj;
 }
 
 Fixed::Fixed ( const int nb )
@@ -71,10 +71,10 @@ int Fixed::getRawBits( void ) const
 
 float Fixed::toFloat( void ) const
 {
-	return ((float)this->fixedPointNb / (float)(1 << fractionalNb));
+	return ((float)this->fixedPointNb / (1 << fractionalNb));
 }
 
-float Fixed::toInt( void ) const
+int Fixed::toInt( void ) const
 {
 	return ((int)this->fixedPointNb / (int)(1 << fractionalNb));
 }

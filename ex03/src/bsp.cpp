@@ -12,8 +12,6 @@
 
 #include "Point.hpp"
 
-// # WARNING: Remettre les consts dans le prototype de fonction bsp
-
 bool bsp( Point const a, Point const b, Point const c, Point const point)
 {
     Fixed	d1, d2, d3;
@@ -22,13 +20,13 @@ bool bsp( Point const a, Point const b, Point const c, Point const point)
     d1 = detectPosPoint(a, b, point);
     d2 = detectPosPoint(b, c, point);
     d3 = detectPosPoint(c, a, point);
-    neg = (d1 < 0) || (d2 < 0) || (d3 < 0);
-    pos = (d1 > 0) || (d2 > 0) || (d3 > 0);
+    neg = (d1 < 0) && (d2 < 0) && (d3 < 0);
+    pos = (d1 > 0) && (d2 > 0) && (d3 > 0);
 
-    return !(neg && pos);
+    return (neg || pos);
 }
 
-Fixed detectPosPoint( const Point& a, const Point& b, const Point& p )
+Fixed detectPosPoint( const Point& a, const Point& b, const Point& p ) 
 {
     return (b.getX() - a.getX()) * (p.getY() - a.getY()) - (b.getY() - a.getY()) * (p.getX() - a.getX());
 }

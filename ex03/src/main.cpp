@@ -12,14 +12,12 @@
 
 #include "Point.hpp"
 
-// # WARNING: have to put x and y private
- 
 int	main(void)
 {
 	Point	A( 2,5 );
-	Point	B( 7,1 );
+	Point	B( 7,3 );
 	Point	C( 4,8 );
-	Point	point( 3,6 );
+	Point	point( 1,3 );
 
 	if (bsp(A, B, C, point) == true)
 		std::cout << "Inside the triangle\n";

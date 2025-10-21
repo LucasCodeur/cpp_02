@@ -18,20 +18,20 @@
 class	Fixed
 {
 	public:
-		Fixed( void );
-		Fixed( const Fixed& obj );
-		Fixed ( const int nb );
-		Fixed ( const float nb );
-		~Fixed( void );
+		Fixed	( void );
+		Fixed	( const Fixed& obj );
+		Fixed	( const int nb );
+		Fixed	( const float nb );
+		~Fixed	( void );
 		Fixed& operator=( const Fixed &other );
 
-		int getRawBits( void ) const;
-		void setRawBits( int const raw );
-		float toFloat( void ) const;
-		float toInt( void ) const;
+		int		getRawBits( void ) const;
+		void	setRawBits( int const raw );
+		float	toFloat( void ) const;
+		int		toInt( void ) const;
 	private:
-		static const int fractionalNb = 8;
-		int	fixedPointNb;
+		static const	int fractionalNb = 8;
+		int				fixedPointNb;
 };
 
 std::ostream& operator<<( std::ostream &os, const Fixed &other );

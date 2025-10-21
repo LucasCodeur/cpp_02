@@ -6,7 +6,7 @@
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/25 17:27:30 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/10/02 10:24:26 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/10/16 16:32:59 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define POINT_H
 
 #include "Fixed.hpp"
-
-// #WARNING : check what if I have to put private 
 
 class Point
 {

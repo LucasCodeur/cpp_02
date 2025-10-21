@@ -22,9 +22,12 @@ P_OBJ = .obj/
 P_INC = inc/
 
 SRC = main.cpp \
-	  ClapTrap.cpp
+	  bsp.cpp \
+	  Fixed.cpp \
+	  Point.cpp
 
-INC = ClapTrap.hpp \
+INC = Fixed.hpp  \
+	  Point.hpp
 
 SRCS = \
 	$(addprefix $(P_SRC), $(SRC)) \

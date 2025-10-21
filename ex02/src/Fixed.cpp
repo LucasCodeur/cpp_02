@@ -24,7 +24,8 @@ Fixed::Fixed ( void )
 Fixed::Fixed ( const Fixed& obj )
 {
 	std::cout << "Copy constructor called\n";
-	*this = obj;
+	if (this != &obj)
+		*this = obj;
 }
 
 Fixed::Fixed ( const int nb )
