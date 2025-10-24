@@ -75,7 +75,7 @@ float Fixed::toFloat( void ) const
 	return (static_cast<float>(this->fixedPointNb) / (1 << fractionalNb));
 }
 
-float Fixed::toInt( void ) const
+int Fixed::toInt( void ) const
 {
 	return ((int)this->fixedPointNb / (int)(1 << fractionalNb));
 }
@@ -110,32 +110,38 @@ bool Fixed::operator!=( const Fixed &other ) const
 	return (this->fixedPointNb != other.fixedPointNb);
 }
 
-Fixed& Fixed::operator+( const Fixed &other )
+Fixed Fixed::operator+( const Fixed &other )
 {
-	fixedPointNb += other.fixedPointNb;
-	return (*this);
+	Fixed res = this->fixedPointNb + other.fixedPointNb;
+	return (res);
 }
 
-Fixed& Fixed::operator-( const Fixed &other )
+Fixed Fixed::operator-( const Fixed &other )
 {
-	fixedPointNb -= other.fixedPointNb;
-	return (*this);
+	Fixed res = this->fixedPointNb - other.fixedPointNb;
+	return (res);
 }
 
 Fixed Fixed::operator*(Fixed const &other) const 
 {
-	Fixed		result;
+	Fixed		res;
 	long long	produit;
 
 	produit = static_cast<long long>(fixedPointNb) * static_cast<long long>(other.getRawBits());
-	result.setRawBits(static_cast<int>(produit >> fractionalNb));
-	return (result);
+	res.setRawBits(static_cast<int>(produit >> fractionalNb));
+	return (res);
 }
 
-Fixed& Fixed::operator/( const Fixed &other )
+Fixed Fixed::operator/( const Fixed &other )
 {
-	fixedPointNb /= other.fixedPointNb;
-	return (*this);
+	if (other.fixedPointNb == 0)
+	{
+		std::cout << "Error: Divided by zero\n";
+		this->fixedPointNb = 0;
+		return (*this);
+	}
+	int res = this->fixedPointNb / other.fixedPointNb;
+	return (res);
 }
 
 Fixed& Fixed::operator++()
@@ -195,7 +201,6 @@ const Fixed& Fixed::max(const Fixed &other, const Fixed &other2)
 		 return (other);
 	return (other2);
 }
-
 int Fixed::getFractionalNb( void )	
 {
 	return (fractionalNb);

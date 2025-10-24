@@ -13,7 +13,7 @@
 .PHONY : all clean fclean re debug
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-NAME =	Aaaaand...OPEN! 
+NAME =	BSP 
 # Debugging flags
 CFLAGS_DEBUG = -Wall -Wextra -pthread -g3 -D DEBUG=1
 

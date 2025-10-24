@@ -31,7 +31,7 @@ Fixed& Fixed::operator=( const Fixed &other )
 Fixed::Fixed ( Fixed& obj )
 {
 	std::cout << "Copy constructor called\n";
-	if (this != &other)
+	if (this != &obj)
 		*this = obj;
 }
 

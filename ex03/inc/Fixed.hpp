@@ -32,10 +32,10 @@ class	Fixed
 		bool operator!=( const Fixed &other ) const;
 		bool operator==( const Fixed &other ) const;
 
-		Fixed&	operator+( const Fixed &other );
-		Fixed&	operator-( const Fixed &other );
-		Fixed operator*(Fixed const &rhs) const; 
-		Fixed&	operator/( const Fixed &other );
+		Fixed	operator+( const Fixed &other );
+		Fixed	operator-( const Fixed &other );
+		Fixed	operator*(Fixed const &rhs) const; 
+		Fixed	operator/( const Fixed &other );
 		Fixed&	operator++();
 		Fixed	operator++( int );
 		Fixed&	operator--();
@@ -44,7 +44,7 @@ class	Fixed
 		int getRawBits( void ) const;
 		void setRawBits( int const raw );
 		float toFloat( void ) const;
-		float toInt( void ) const;
+		int toInt( void ) const;
 
 		static Fixed& min(Fixed &other, Fixed &other2);
 		static const Fixed& min(const Fixed &other, const Fixed &other2);

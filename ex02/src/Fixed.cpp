@@ -6,7 +6,7 @@
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 13:33:43 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/09/16 17:46:13 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/10/24 15:15:49 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,29 +110,29 @@ bool Fixed::operator!=( const Fixed &other ) const
 	return (this->fixedPointNb != other.fixedPointNb);
 }
 
-Fixed& Fixed::operator+( const Fixed &other )
+Fixed Fixed::operator+( const Fixed &other )
 {
-	fixedPointNb += other.fixedPointNb;
-	return (*this);
+	Fixed res = this->fixedPointNb + other.fixedPointNb;
+	return (res);
 }
 
-Fixed& Fixed::operator-( const Fixed &other )
+Fixed Fixed::operator-( const Fixed &other )
 {
-	fixedPointNb -= other.fixedPointNb;
-	return (*this);
+	Fixed res = this->fixedPointNb - other.fixedPointNb;
+	return (res);
 }
 
 Fixed Fixed::operator*(Fixed const &other) const 
 {
-	Fixed		result;
+	Fixed		res;
 	long long	produit;
 
 	produit = static_cast<long long>(fixedPointNb) * static_cast<long long>(other.getRawBits());
-	result.setRawBits(static_cast<int>(produit >> fractionalNb));
-	return (result);
+	res.setRawBits(static_cast<int>(produit >> fractionalNb));
+	return (res);
 }
 
-Fixed& Fixed::operator/( const Fixed &other )
+Fixed Fixed::operator/( const Fixed &other )
 {
 	if (other.fixedPointNb == 0)
 	{
@@ -140,8 +140,8 @@ Fixed& Fixed::operator/( const Fixed &other )
 		this->fixedPointNb = 0;
 		return (*this);
 	}
-	this->fixedPointNb /= other.fixedPointNb;
-	return (*this);
+	int res = this->fixedPointNb / other.fixedPointNb;
+	return (res);
 }
 
 Fixed& Fixed::operator++()
