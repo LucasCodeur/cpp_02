@@ -14,10 +14,10 @@
 
 int	main(void)
 {
-	Point	A( 2,5 );
-	Point	B( 7,3 );
-	Point	C( 4,8 );
-	Point	point( 1,3 );
+	Point	A(5, 0 );
+	Point	B(0,0 );
+	Point	C(0, 5);
+	Point	point(1, 0);
 
 	if (bsp(A, B, C, point) == true)
 		std::cout << "Inside the triangle\n";

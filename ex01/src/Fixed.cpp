@@ -35,7 +35,7 @@ Fixed::Fixed ( const int nb )
 
 Fixed::Fixed ( const float nb )
 {
-	fixedPointNb = (int)((round(nb * (1 << fractionalNb))));
+	fixedPointNb = (int)((roundf(nb * (1 << fractionalNb))));
 	std::cout << "Float constructor called\n";
 }
 
