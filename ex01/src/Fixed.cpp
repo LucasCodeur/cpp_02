@@ -71,10 +71,10 @@ int Fixed::getRawBits( void ) const
 
 float Fixed::toFloat( void ) const
 {
-	return ((float)this->fixedPointNb / (1 << fractionalNb));
+	return (this->fixedPointNb / static_cast<float>(1 << fractionalNb));
 }
 
 int Fixed::toInt( void ) const
 {
-	return ((int)this->fixedPointNb / (int)(1 << fractionalNb));
+	return (this->fixedPointNb / (1 << fractionalNb));
 }
